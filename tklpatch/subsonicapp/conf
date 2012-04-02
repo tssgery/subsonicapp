@@ -127,6 +127,14 @@ ln -s /usr/local/bin/ffmpeg /var/subsonic/transcode/ffmpeg
 ln -s /usr/local/bin/lame /var/subsonic/transcode/lame
 ls
 
+####################################################
+# INSTALL lighttpd as a forwarder
+####################################################
+DEBIAN_FRONTEND=noninteractive apt-get -y \
+    -o DPkg::Options::=--force-confdef \
+    -o DPkg::Options::=--force-confold \
+    install \
+    lighttpd 
 
 ####################################################
 # Create the service file
