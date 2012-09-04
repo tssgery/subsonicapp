@@ -2,7 +2,7 @@
 subsonicbapp
 
 This is a project for building a Turnkey Linux patch to configure a
-SubSonic installation of Ubuntu 10.04 (initially) along with the following additions:
+SubSonic installation of Debian 6 (initially) along with the following additions:
 
 
 DONATIONS
@@ -14,7 +14,7 @@ They are the heroes in this effort, not me.
 
 USAGE
 ==================================================================
-This patch should be applied onto version 11.2 of the 
+This patch should be applied onto version 12.0 of the 
 Turnkey core distribution found at:
 http://www.turnkeylinux.org/core
 
@@ -24,5 +24,5 @@ OR
 
 by patching the installable ISO image of the distribution
 
-tklpatch turnkey-core-11.2-lucid-x86.iso tklpatch/subsonic
+tklpatch turnkey-core-12.0-squeeze-x86.iso tklpatch/subsonic
 

@@ -24,26 +24,27 @@ sed -i "s|# deb http://archive.ubuntu.com/ubuntu lucid-updates restricted|deb ht
 sed -i "s|# deb http://archive.ubuntu.com/ubuntu lucid restricted|deb http://archive.ubuntu.com/ubuntu lucid restricted|" /etc/apt/sources.list.d/sources.list
 
 # add the python installation tools and sudo
+echo "deb http://www.deb-multimedia.org squeeze main non-free" >> /etc/apt/sources.list
 apt-get update
 DEBIAN_FRONTEND=noninteractive apt-get -y \
     -o DPkg::Options::=--force-confdef \
     -o DPkg::Options::=--force-confold \
-    install python-software-properties sudo unrar openjdk-6-jre smbfs
+    install python-software-properties sudo unrar-free openjdk-6-jre smbfs
 
 
 ####################################################
 # make sure no prior versions of packages exist
 ####################################################
-DEBIAN_FRONTEND=noninteractive apt-get -y \
-    -o DPkg::Options::=--force-confdef \
-    -o DPkg::Options::=--force-confold \
-    remove ffmpeg x264 libx264-dev libmp3lame-dev
+#DEBIAN_FRONTEND=noninteractive apt-get -y \
+#    -o DPkg::Options::=--force-confdef \
+#    -o DPkg::Options::=--force-confold \
+#    remove ffmpeg x264 libx264-dev libmp3lame-dev
 
 ####################################################
 # get the tools needed to build/install lame/ffmpeg
 ####################################################
 DEBIAN_FRONTEND=noninteractive apt-get -y \
-    -o DPkg::Options::=--force-confdef \
+    -o DPkg::Options::=--force-confdef --force-yes \
     -o DPkg::Options::=--force-confold \
     install \
     build-essential checkinstall texi2html libfaac-dev \
