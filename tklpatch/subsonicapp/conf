@@ -50,7 +50,7 @@ DEBIAN_FRONTEND=noninteractive apt-get -y \
     -o DPkg::Options::=--force-confdef \
     -o DPkg::Options::=--force-confold \
     install \
-    lighttpd=1.4.31
+    lighttpd=1.4.31-1+b1
 
 # stop the service now!
 service lighttpd stop
