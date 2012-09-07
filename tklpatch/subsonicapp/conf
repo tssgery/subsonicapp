@@ -46,14 +46,11 @@ ls
 ####################################################
 # INSTALL lighttpd as a forwarder
 ####################################################
-wget ftp://ftp.debian.org/debian/pool/main/l/lighttpd/lighttpd_1.4.31-1+b1_i386.deb
-dpkg -i light* 
-
-#DEBIAN_FRONTEND=noninteractive apt-get -y \
-#    -o DPkg::Options::=--force-confdef \
-#    -o DPkg::Options::=--force-confold \
-#    install \
-#    lighttpd
+DEBIAN_FRONTEND=noninteractive apt-get -y \
+    -o DPkg::Options::=--force-confdef \
+    -o DPkg::Options::=--force-confold \
+    install \
+    lighttpd
 
 # stop the service now!
 service lighttpd stop
