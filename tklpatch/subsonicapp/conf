@@ -29,9 +29,8 @@ DEBIAN_FRONTEND=noninteractive apt-get -y \
 DEBIAN_FRONTEND=noninteractive apt-get -y --force-yes \
     -o DPkg::Options::=--force-confdef \
     -o DPkg::Options::=--force-confold \
+    deb-multimedia-keyring \
     install x264 lame ffmpeg
-
-
 
 ####################################################
 # modify the transcode links
