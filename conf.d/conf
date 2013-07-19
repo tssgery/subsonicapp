@@ -11,7 +11,7 @@ sed -i "s|127.0.1.1 \(.*\)|127.0.1.1 $HOSTNAME|" /etc/hosts
 ####################################################
 # install debs
 ####################################################
-dpkg -i /debs/*.deb
+dpkg -i --force-confdef --force-confold /debs/*.deb
 rm -rf /debs/*.deb
 
 # create the nzb userid (which all the nzb daemons run as)
@@ -67,6 +67,10 @@ echo "Subsonic:       http://\$ipaddr:4040"  >  /etc/confconsole/services.txt
 echo "Web Shell:      http://\$ipaddr:12320" >> /etc/confconsole/services.txt
 echo "Webmin:         http://\$ipaddr:12321" >> /etc/confconsole/services.txt
 
+####################################################
+# Create the service file
+####################################################
+echo "Subsonic v4.8" > /etc/appname
 
 ####################################################
 # done!
