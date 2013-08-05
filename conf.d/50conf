@@ -24,7 +24,7 @@ apt-get update
 DEBIAN_FRONTEND=noninteractive apt-get -y \
     -o DPkg::Options::=--force-confdef \
     -o DPkg::Options::=--force-confold \
-    install python-software-properties sudo unrar-free openjdk-6-jre-headless smbfs 
+    install python-software-properties sudo unrar-free openjdk-6-jre-headless cifs-utils
 
 DEBIAN_FRONTEND=noninteractive apt-get -y --force-yes \
     -o DPkg::Options::=--force-confdef \
