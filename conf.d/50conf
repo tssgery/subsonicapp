@@ -12,10 +12,6 @@ sed -i "s|127.0.1.1 \(.*\)|127.0.1.1 $HOSTNAME|" /etc/hosts
 # groupadd $GROUPNAME
 useradd -c "Application User" -d /home/$USERNAME -g $GROUPNAME -m -s /bin/bash "$USERNAME"
 chown -R $USERNAME:$GROUPNAME /home/$USERNAME
-# change subsonic to run as this user
-sed -i "s|^SUBSONIC_USER=root|SUBSONIC_USER=$USERNAME|g" /etc/default/subsonic
-# change the default subsonic arguments
-# sed -i "s|^SUBSONIC_ARGS=\(.*\)|SUBSONIC_ARGS=\"--port=4040 --max-memory=150\"|" /etc/default/subsonic
 
 # add the python installation tools and sudo
 echo "deb http://www.deb-multimedia.org squeeze main non-free" >> /etc/apt/sources.list
@@ -31,6 +27,16 @@ DEBIAN_FRONTEND=noninteractive apt-get -y --force-yes \
     -o DPkg::Options::=--force-confold \
     install deb-multimedia-keyring \
     x264 lame ffmpeg
+
+####################################################
+# download/install subsonic
+####################################################
+dpkg -i /debs/subsonic*.deb
+
+# change subsonic to run as this user
+sed -i "s|^SUBSONIC_USER=root|SUBSONIC_USER=$USERNAME|g" /etc/default/subsonic
+# change the default subsonic arguments
+# sed -i "s|^SUBSONIC_ARGS=\(.*\)|SUBSONIC_ARGS=\"--port=4040 --max-memory=150\"|" /etc/default/subsonic
 
 ####################################################
 # modify the transcode links
